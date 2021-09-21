@@ -10,6 +10,10 @@
 - Hafta günü kontrolü.
 - Bayram günleri kontrolü.
 
+### Destek Ol
+
+Projeyi desteklemek için eğer bir GitHub hesabınız varsa bu depoyu ⭐️ yıldızlayabilirsiniz. Maddi olarak destek vermek isteyenler ise [https://eggsy.xyz/donate](https://eggsy.xyz/donate) adresinden hesap numaralarıma ulaşabilirler.
+
 ### Dipnot
 
 Her ne kadar inanılmaz derecede güçlendirilmiş ve zeka ile donatılmış bir uygulama olsa da, çekmeden önce bir kez daha kontrol yapın. Bazı durumlarda sitenin gösterdiği sonuçlar doğru olmayabilir.
