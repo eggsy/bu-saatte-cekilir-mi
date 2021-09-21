@@ -181,7 +181,7 @@ const Home: NextPage = () => {
         <motion.div
           initial={{ x: "-30%" }}
           animate={{ x: 0 }}
-          className="flex items-center space-x-2"
+          className="flex flex-wrap items-center gap-2"
         >
           <div
             className="px-4 py-2 text-gray-400 rounded-lg bg-gray-50"
