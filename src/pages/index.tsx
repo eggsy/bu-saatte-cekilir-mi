@@ -24,6 +24,8 @@ interface Data {
 
 const Home: NextPage = () => {
   const [currentStrings, setCurrentStrings] = useState([strings[0]]);
+  const [forceReverseResult, setForceReverseResult] = useState(false);
+  const [isHiddenButton, setIsHiddenButton] = useState(0);
 
   /* Fetch data */
   const fetchDays = async () => await (await axios.get("/api/days")).data;
@@ -53,10 +55,15 @@ const Home: NextPage = () => {
   }, []);
 
   const isTodaySpecial = useMemo(() => {
-    if (isCuma) return true;
-    else if (isAnimationDone && data) return data?.some(findSpecialDay);
-    else return false;
-  }, [data, isAnimationDone, isCuma]);
+    const getResult = () => {
+      if (isCuma) return true;
+      else if (data) return data?.some(findSpecialDay);
+      else return false;
+    };
+
+    const result = getResult();
+    return forceReverseResult ? !result : result;
+  }, [data, isCuma, forceReverseResult]);
 
   const getSpecialDay = useMemo(() => {
     if (isCuma)
@@ -65,20 +72,21 @@ const Home: NextPage = () => {
         dates: [new Date()],
         risk: 2,
       };
-    else if (isAnimationDone && data && isTodaySpecial)
-      return data?.find(findSpecialDay);
+    else if (data && isTodaySpecial) return data?.find(findSpecialDay);
     else return null;
-  }, [data, isAnimationDone, isTodaySpecial, isCuma]);
+  }, [data, isTodaySpecial, isCuma]);
 
   const daysLeft = useMemo(() => {
     if (isTodaySpecial && !isCuma) {
       const specialDay = getSpecialDay || { dates: [0, 0] };
 
+      if (getSpecialDay?.name === "Senin Günün") return 1;
+
       const today = new Date().getTime();
       const end = new Date(specialDay.dates[1]).getTime();
 
       return Math.round((end - today) / (1000 * 60 * 60 * 24));
-    } else return 0;
+    } else return 1;
   }, [isTodaySpecial, getSpecialDay, isCuma]);
 
   /* Render */
@@ -166,8 +174,14 @@ const Home: NextPage = () => {
 
                   {isTodaySpecial ? (
                     <p className="text-sm text-white text-opacity-50">
-                      Merak etme, bu yasak {daysLeft === 0 ? "1" : daysLeft} gün
-                      içinde bitecek.
+                      {forceReverseResult ? (
+                        <>Sen öyle diyorsan öyledir usta.</>
+                      ) : (
+                        <>
+                          Merak etme, bu yasak {daysLeft === 0 ? "1" : daysLeft}{" "}
+                          gün içinde bitecek.
+                        </>
+                      )}
                     </p>
                   ) : (
                     <div>Bugün seni kimse durduramaz.</div>
@@ -182,6 +196,7 @@ const Home: NextPage = () => {
           initial={{ x: "-30%" }}
           animate={{ x: 0 }}
           className="flex flex-wrap items-center gap-2"
+          onClick={() => setIsHiddenButton((prev) => prev + 1)}
         >
           <div
             className="px-4 py-2 text-gray-400 rounded-lg bg-gray-50"
@@ -218,6 +233,15 @@ const Home: NextPage = () => {
               >
                 GitHub
               </Button>
+
+              {isHiddenButton > 5 && (
+                <Button
+                  title="Aksi bir sonucu zorlamak için tıklayın"
+                  onClick={() => setForceReverseResult((prev) => !prev)}
+                >
+                  {isTodaySpecial ? "Çekilir Çekilir" : "Yok Çekilmez"}
+                </Button>
+              )}
             </>
           )}
         </motion.div>
