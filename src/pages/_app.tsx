@@ -29,6 +29,8 @@ const BuSaatteCekilirMi = ({ Component, pageProps }: AppProps) => {
           content={meta.description}
         />
 
+        <meta name="theme-color" property="theme-color" content="#EF4444" />
+
         {/* Open-graph */}
         <meta name="og:title" property="og:title" content={meta.title} />
         <meta
@@ -36,7 +38,6 @@ const BuSaatteCekilirMi = ({ Component, pageProps }: AppProps) => {
           property="og:description"
           content={meta.description}
         />
-        <meta name="og:color" property="og:color" content="#EF4444" />
 
         {/* Twitter */}
         <meta
