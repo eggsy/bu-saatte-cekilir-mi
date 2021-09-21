@@ -1,7 +1,16 @@
 {
-  "name": "busaattecekilirmi",
-  "version": "0.1.0",
-  "private": true,
+  "name": "bu-saatte-cekilir-mi",
+  "version": "1.0.0",
+  "author": {
+    "email": "eggsydev@outlook.com",
+    "name": "Abdulbaki 'EGGSY' Dursun",
+    "url": "https://eggsy.xyz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eggsy/bu-saatte-cekilir-mi"
+  },
+  "readme": "https://github.com/eggsy/bu-saatte-cekilir-mi/#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
