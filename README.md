@@ -13,3 +13,5 @@
 ### Dipnot
 
 Her ne kadar inanılmaz derecede güçlendirilmiş ve zeka ile donatılmış bir uygulama olsa da, çekmeden önce bir kez daha kontrol yapın. Bazı durumlarda sitenin gösterdiği sonuçlar doğru olmayabilir.
+
+Ayrıca lütfen bu projenin espri amaçlı olduğunu ve kimseyi kışkırtmak gibi bir niyetinin olmadığını unutmayın.
