@@ -80,8 +80,6 @@ const Home: NextPage = () => {
     if (isTodaySpecial && !isCuma) {
       const specialDay = getSpecialDay || { dates: [0, 0] };
 
-      if (getSpecialDay?.name === "Senin Günün") return 1;
-
       const today = new Date().getTime();
       const end = new Date(specialDay.dates[1]).getTime();
 
