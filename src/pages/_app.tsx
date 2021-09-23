@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { GoogleAnalytics, usePagesViews } from "nextjs-google-analytics";
+
+/* Import components */
 import Head from "next/head";
 import Interact from "../components/Home/Interact";
 
@@ -17,9 +20,12 @@ const meta = {
 
 const BuSaatteCekilirMi = ({ Component, pageProps }: AppProps) => {
   const [interacted, setInteracted] = useState(false);
+  usePagesViews();
 
   return (
     <>
+      <GoogleAnalytics />
+
       <Head>
         <title>{meta.title}</title>
 

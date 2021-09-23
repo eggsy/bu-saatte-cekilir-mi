@@ -2403,6 +2403,11 @@ next@11.1.2:
     "@next/swc-linux-x64-gnu" "11.1.2"
     "@next/swc-win32-x64-msvc" "11.1.2"
 
+nextjs-google-analytics@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/nextjs-google-analytics/-/nextjs-google-analytics-1.0.1.tgz#f74948de3b3f9fb76fd27a279eff1f1ca34954fd"
+  integrity sha512-Pfq9I1iEWoE343M+d12V5ahrpERPqscNtBoFlEwwWlc7Dc5xGj/+PVJ3NNEaGWKiOiQamx+fLL3ewDrGAudM8Q==
+
 node-emoji@^1.11.0:
   version "1.11.0"
   resolved "https://registry.yarnpkg.com/node-emoji/-/node-emoji-1.11.0.tgz#69a0150e6946e2f115e9d7ea4df7971e2628301c"
