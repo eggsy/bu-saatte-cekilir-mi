@@ -1,6 +1,7 @@
+import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import useSWR from "swr";
 import axios from "axios";
-import { useMemo, useState } from "react";
 
 import AnimatedBox from "../components/AnimatedBox";
 import AnimatedCheckBox from "../components/AnimatedCheckbox";
@@ -15,7 +16,6 @@ import strings from "../data/strings";
 
 /* Import types */
 import type { NextPage } from "next";
-import { motion } from "framer-motion";
 
 interface Data {
   name: string;
