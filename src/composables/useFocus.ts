@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 
+/**
+ * Listens to window events and sets the focus state and returns a state value.
+ */
 const useFocus = () => {
   const [isFocused, setIsFocused] = useState(false);
 
