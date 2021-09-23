@@ -1,5 +1,5 @@
 import { MouseEventHandler } from "react";
-import Button from "../Button";
+import Button from "../Button/Default";
 
 interface InteractProps {
   onClick: MouseEventHandler;
