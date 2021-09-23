@@ -3,7 +3,11 @@ import { motion } from "framer-motion";
 /* Import data */
 import sayings from "../data/sayings";
 
-const Sayings: React.FC = () => {
+interface SayingsProps {
+  soundEnabled: boolean;
+}
+
+const Sayings: React.FC<SayingsProps> = ({ soundEnabled }) => {
   const randomSaying = sayings[Math.floor(Math.random() * sayings.length)];
 
   return (
@@ -23,7 +27,9 @@ const Sayings: React.FC = () => {
         </div>
       </motion.div>
 
-      <audio className="hidden" autoPlay src="/sounds/turkiyem.mp3" />
+      {soundEnabled && (
+        <audio className="hidden" autoPlay src="/sounds/turkiyem.mp3" />
+      )}
     </>
   );
 };

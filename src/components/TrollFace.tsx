@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 
-const TrollFace: React.FC = () => (
+interface TrollFaceProps {
+  soundEnabled: boolean;
+}
+
+const TrollFace: React.FC<TrollFaceProps> = ({ soundEnabled }) => (
   <motion.div
     initial={{ x: "30%" }}
     animate={{ x: 0 }}
@@ -17,7 +21,9 @@ const TrollFace: React.FC = () => (
       }}
     />
 
-    <audio autoPlay src="/sounds/amongus.mp3" />
+    {soundEnabled && (
+      <audio className="hidden" autoPlay src="/sounds/amongus.mp3" />
+    )}
   </motion.div>
 );
 
