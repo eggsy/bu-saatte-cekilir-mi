@@ -1,13 +1,25 @@
 import ReactCanvasConfetti from "react-canvas-confetti";
 import { useEffect, useState } from "react";
 
+/* Import composables */
+import useFocus from "../composables/useFocus";
+
 const Confetti: React.FC = () => {
   const [fired, setFired] = useState(false);
+  const isFocused = useFocus();
 
   useEffect(() => {
     setFired(true);
-    setInterval(() => setFired((prev) => !prev), 750);
-  }, []);
+
+    /* Set interval */
+    const interval = setInterval(() => {
+      if (isFocused) setFired((prev) => !prev);
+    }, 750);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [isFocused]);
 
   return (
     <ReactCanvasConfetti
