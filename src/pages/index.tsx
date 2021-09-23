@@ -87,6 +87,32 @@ const Home: NextPage = () => {
     } else return 1;
   }, [isTodaySpecial, getSpecialDay, isCuma]);
 
+  const getText = useMemo(() => {
+    let title = isTodaySpecial ? "Çekemezsin!" : "Çekilir.",
+      description,
+      subtitle;
+
+    /* Description */
+    if (isTodaySpecial && getSpecialDay)
+      description = `Bugün günlerden ${getSpecialDay.name}! Bugün
+                          çekemezsin.`;
+
+    /* Subtitle */
+    if (isTodaySpecial && forceReverseResult)
+      subtitle = "Sen öyle diyorsan öyledir usta.";
+    else if (isTodaySpecial && !forceReverseResult)
+      subtitle = `Merak etme, bu yasak ${
+        daysLeft === 0 ? "1" : daysLeft
+      } gün içinde bitecek.`;
+    else subtitle = "Bugün seni kimse durduramaz.";
+
+    return {
+      title,
+      description,
+      subtitle,
+    };
+  }, [daysLeft, forceReverseResult, getSpecialDay, isTodaySpecial]);
+
   /* Render */
   return (
     <div className="grid min-h-screen gap-6 py-8 md:grid-cols-2">
@@ -157,33 +183,17 @@ const Home: NextPage = () => {
 
                   <div className="space-y-px">
                     <h1 className="text-4xl font-bold text-white">
-                      {!isTodaySpecial ? "Çekilir." : "Çekemezsin!"}
+                      {getText.title}
                     </h1>
 
                     <p className="text-white text-opacity-75">
-                      {isTodaySpecial && getSpecialDay && (
-                        <div>
-                          Bugün günlerden {getSpecialDay.name}! Bugün
-                          çekemezsin.
-                        </div>
-                      )}
+                      {getText.description}
                     </p>
                   </div>
 
-                  {isTodaySpecial ? (
-                    <p className="text-sm text-white text-opacity-50">
-                      {forceReverseResult ? (
-                        <>Sen öyle diyorsan öyledir usta.</>
-                      ) : (
-                        <>
-                          Merak etme, bu yasak {daysLeft === 0 ? "1" : daysLeft}{" "}
-                          gün içinde bitecek.
-                        </>
-                      )}
-                    </p>
-                  ) : (
-                    <div>Bugün seni kimse durduramaz.</div>
-                  )}
+                  <p className="text-sm text-white text-opacity-50">
+                    {getText.subtitle}
+                  </p>
                 </div>
               </AnimatedBox>
             </>
