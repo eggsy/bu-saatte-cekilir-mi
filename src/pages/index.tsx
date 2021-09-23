@@ -100,7 +100,10 @@ const Home: NextPage = () => {
                           çekemezsin.`;
 
     /* Subtitle */
-    if (isTodaySpecial && forceReverseResult)
+    if (isCuma && forceReverseResult) {
+      title = "Çekilir de-..";
+      subtitle = "Bari bugün çekme be usta...";
+    } else if (isTodaySpecial && forceReverseResult)
       subtitle = "Sen öyle diyorsan öyledir usta.";
     else if (isTodaySpecial && !forceReverseResult)
       subtitle = `Merak etme, bu yasak ${
@@ -115,7 +118,7 @@ const Home: NextPage = () => {
       description,
       subtitle,
     };
-  }, [daysLeft, forceReverseResult, getSpecialDay, isTodaySpecial]);
+  }, [daysLeft, isCuma, forceReverseResult, getSpecialDay, isTodaySpecial]);
 
   /* Render */
   return (
