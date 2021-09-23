@@ -104,6 +104,8 @@ const Home: NextPage = () => {
       subtitle = `Merak etme, bu yasak ${
         daysLeft === 0 ? "1" : daysLeft
       } gün içinde bitecek.`;
+    else if (new Date().getMinutes() === 31)
+      subtitle = "Bundan daha iyi bir zaman olamaz...";
     else subtitle = "Bugün seni kimse durduramaz.";
 
     return {
