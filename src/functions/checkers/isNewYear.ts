@@ -6,9 +6,9 @@ const messages = [
   "Hemen başla. Yeni yılın ilk günü.",
   "Nasıl girersen öyle geçer.",
   "Bir yılı daha libidolu geçirmek mi...",
-  "Olur olur, ben karışmıyorum.",
+  "Olur olur, ben karışmıyorum, yeni yıl sonuçta.",
   "Yeni yıl, yeni olanaklar, yeni fanteziler.",
-  "Ulan hâlâ mı sapsın.",
+  "Ulan bu yılda da mı sapsın.",
   "Acıyorum sana ama çek ulan. Son gününmüş gibi çek.",
   `${new Date().getFullYear() - 1} yılına ne oldu?`,
 ];

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import useSWR from "swr";
 import axios from "axios";
@@ -43,17 +43,19 @@ const Home: NextPage = () => {
   );
 
   // Get messages
-  const setData = (bayrams: BayramResponse[]) => {
-    const message = getMessages(bayrams);
+  const setData = useCallback(() => {
+    if (!data) return;
+
+    const message = getMessages(data);
     const isSpecial = message.risk;
 
     setGetData({
       ...message,
       name: isSpecial ? "Çekilmez!" : "Çekilir.",
     });
-  };
+  }, [data]);
 
-  useEffect(() => setData(data ?? []), [data]);
+  useEffect(() => setData(), [setData]);
 
   // Render
   return (
@@ -148,7 +150,7 @@ const Home: NextPage = () => {
 
           {isAnimationDone && (
             <>
-              <Button target="_blank" onClick={() => setData(data ?? [])}>
+              <Button target="_blank" onClick={() => setData()}>
                 Mesajı Değiştir
               </Button>
 
