@@ -10,9 +10,13 @@
 - Hafta günü kontrolü.
 - Bayram günleri kontrolü.
 
-### Destek Ol
+### Sponsorlar
 
-Projeyi desteklemek için eğer bir GitHub hesabınız varsa bu depoyu ⭐️ yıldızlayabilirsiniz. Maddi olarak destek vermek isteyenler ise [https://eggsy.xyz/donate](https://eggsy.xyz/donate) adresinden hesap numaralarıma ulaşabilirler.
+<p align="center">
+  <a href="https://github.com/sponsors/eggsy">
+    <img src='https://cdn.jsdelivr.net/gh/eggsy/.github/sponsors.svg'/>
+  </a>
+</p>
 
 ### Dipnot
 
